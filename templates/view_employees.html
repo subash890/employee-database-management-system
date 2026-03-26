@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Employees</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Employee Records</h1>
+
+        <form method="GET" action="/view" class="search-form">
+            <input type="text" name="search" placeholder="Search by Name or Department">
+            <button type="submit" class="btn">Search</button>
+            <a href="/view" class="btn">Reset</a>
+        </form>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Department</th>
+                <th>Salary</th>
+                <th>Joining Date</th>
+                <th>Actions</th>
+            </tr>
+            {% for emp in employees %}
+            <tr>
+                <td>{{ emp[0] }}</td>
+                <td>{{ emp[1] }}</td>
+                <td>{{ emp[2] }}</td>
+                <td>{{ emp[3] }}</td>
+                <td>{{ emp[4] }}</td>
+                <td>{{ emp[5] }}</td>
+                <td>{{ emp[6] }}</td>
+                <td>{{ emp[7] }}</td>
+                <td>
+                    <a href="/update/{{ emp[0] }}" class="btn">Update</a>
+                    <a href="/delete/{{ emp[0] }}" class="btn delete-btn">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>

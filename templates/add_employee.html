@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Employee</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add Employee</h1>
+        <form method="POST">
+            <input type="number" name="employee_id" placeholder="Employee ID" required>
+            <input type="text" name="full_name" placeholder="Full Name" required>
+            <input type="number" name="age" placeholder="Age" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="phone" placeholder="Phone" required>
+            <input type="text" name="department" placeholder="Department" required>
+            <input type="number" name="salary" placeholder="Salary" required>
+            <input type="date" name="joining_date" required>
+            <button type="submit" class="btn">Add Employee</button>
+        </form>
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</body>
+</html>
